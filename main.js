@@ -21,13 +21,15 @@ function init(){
         //新闻类的列表
         var newsList = config.newsAppList;
         //视频类的列表
+       // console.log(newslist);
+        
         var videoList = config.videoAppList;
 
         /**
          * 0-7点阅读视频
          * 其他时间阅读新闻
          */
-        if(new Date().getHours() >= 7){
+        if(new Date().getHours() >= 1){
             var appNum = newsList.length;
             for(var i = 0;i< appNum;i++){
                 exec(newsList[i].name,normalRumTime);
@@ -42,9 +44,9 @@ function init(){
 //获取主配置
 function getConfig(){
     toast("开始获取配置");
-    var url = "https://raw.githubusercontent.com/maxwellyue/autojs_script/master/config.json";
+    var url = "https://github.com/xm5689/a3/blob/master/config.json";
     var str = http.get(url)
-    str = JSON.parse(str.body.string());
+        str = JSON.parse(str.body.string());
     toast("配置获取完成");
     return str;
 }
@@ -110,7 +112,7 @@ function updateScript(scriptName){
         if(scriptName == name && version != scriptVersion){
             toast("检测开始更新");
             var path = "/sdcard/脚本/"+scriptName+".js";
-            var scriptContent = http.get("https://raw.githubusercontent.com/maxwellyue/autojs_script/master/"+scriptName+".js").body.string();
+            var scriptContent = http.get("https://github.com/xm5689/"+scriptName+".js").body.string();
             files.write(path,scriptContent);
             storage.put(scriptName,version);
             toast("检测更新完成");

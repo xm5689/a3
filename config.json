@@ -1,8 +1,9 @@
 {
     "newsAppList":[
         {
-            "name":"东方头条",
+            "name":"中青看点",
             "version":1
+            
         }
     ],
     "videoAppList":[
